@@ -13,10 +13,9 @@ function exibirMenu(){
     console.log(`
     menu:
     1- Adicionar um lembrete
-    2- Adicionar um Prazo
-    3- Listar Lembretes Salvos
-    4- concluidos
-    5- Sair`)
+    2- Listar Lembretes Salvos
+    3- concluidos
+    4- Sair`)
 }
 
 rl.question('Digite uma opção ', (opcao) => {
@@ -25,15 +24,12 @@ rl.question('Digite uma opção ', (opcao) => {
             adicionarLembrete()
         break
         case '2':
-
-        break
-        case '3':
             listar()
         break
-        case '4':
+        case '3':
 
         break
-        case '5':
+        case '4':
             rl.close()
         break
         default:
@@ -43,9 +39,11 @@ rl.question('Digite uma opção ', (opcao) => {
 
 function adicionarLembrete(){
     rl.question('Digite um Lembrete', (lembrete) => {
-        lem.push(lembrete)
-            console.log('Salvo com Sucesso')
-                exibirMenu()
+        rl.question('Digite um prazo', (prazo) => {
+            lem.push({lembrete:lembrete, prazo:prazo})
+                console.log('Salvo com Sucesso')
+            exibirMenu()
+        })
     })
 }
 function listar(){
