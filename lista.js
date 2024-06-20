@@ -39,13 +39,13 @@ function exibirMenu(){
 
 
 function adicionarLembrete(){
-    rl.question('Digite um Lembrete', (lembrete) => {
-        rl.question('Digite um prazo', (prazo) => {
-            lem.push({lembrete:lembrete, prazo:parseFloat(prazo)})
-                console.log('Salvo com Sucesso')
-            exibirMenu()
-        })
+    rl.question('Digite um Lembrete:', (lembrete) => {
+    rl.question('Digite um prazo:', (prazo) => {
+        lem.push({lembrete:lembrete, prazo:parseFloat(prazo)})
+        console.log(`Você precisa ${lembrete}, até ${prazo}`)
+        exibirMenu()
     })
+})
 }
 function listar(){
     if(lem == 0){
