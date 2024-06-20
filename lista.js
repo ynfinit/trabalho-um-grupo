@@ -16,26 +16,26 @@ function exibirMenu(){
     2- Listar Lembretes Salvos
     3- concluidos
     4- Sair`)
-}
 
-rl.question('Digite uma opção ', (opcao) => {
-    switch(opcao){
-        case '1':
-            adicionarLembrete()
-        break
-        case '2':
-            listar()
-        break
-        case '3':
+    rl.question('Digite uma opção ', (opcao) => {
+        switch(opcao){
+            case '1':
+                adicionarLembrete()
+            break
+            case '2':
+                listar()
+            break
+            case '3':
 
-        break
-        case '4':
-            rl.close()
-        break
-        default:
-            console.log('Opção Invalida')        
-    }
-})
+            break
+            case '4':
+                rl.close()
+            break
+            default:
+                console.log('Opção Invalida')        
+        }
+    })
+
 
 function adicionarLembrete(){
     rl.question('Digite um Lembrete', (lembrete) => {
@@ -54,4 +54,5 @@ function listar(){
         console.log(lem)
         exibirMenu()
     }
+ }
 }
