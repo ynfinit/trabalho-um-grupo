@@ -23,7 +23,7 @@ function exibirMenu(){
                 adicionarLembrete()
             break
             case '2':
-                listar()
+                listar()    
             break
             case '3':
 
@@ -38,21 +38,22 @@ function exibirMenu(){
 
 
 function adicionarLembrete(){
-    rl.question('Digite um Lembrete', (lembrete) => {
-        rl.question('Digite um prazo', (prazo) => {
+    rl.question('Digite um Lembrete ', (lembrete) => {
+        rl.question('Digite um prazo ', (prazo) => {
             lem.push({lembrete:lembrete, prazo:prazo})
                 console.log('Salvo com Sucesso')
             exibirMenu()
         })
     })
 }
-function listar(){
-    if(lem == 0){
-        console.log('Não a nenhum lembrete salvo')
-        exibirMenu()
-    }else{
-        console.log(lem)
-        exibirMenu()
+    function listar(){
+        if(lem == 0){
+            console.log('Não a nenhum lembrete salvo')
+            exibirMenu()
+        }else{
+            console.log(lem)
+            exibirMenu()
+        }
     }
- }
+ 
 }
