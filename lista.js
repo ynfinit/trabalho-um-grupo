@@ -15,7 +15,8 @@ function exibirMenu(){
     1- Adicionar um lembrete
     2- Listar Lembretes Salvos
     3- concluidos
-    4- Sair`)
+    4- editar o lembrete
+    5- Sair`)
 
     rl.question('Digite uma opção ', (opcao) => {
         switch(opcao){
