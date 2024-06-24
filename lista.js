@@ -40,7 +40,7 @@ function exibirMenu(){
 function adicionarLembrete(){
     rl.question('Digite um Lembrete ', (lembrete) => {
         rl.question('Digite um prazo ', (prazo) => {
-            lem.push({lembrete:lembrete, prazo:parseFloat(prazo)})
+            lem.push({lembrete:lembrete, prazo:prazo, concluidos:false})
                 console.log('Salvo com Sucesso')
             exibirMenu()
         })
@@ -56,4 +56,18 @@ function adicionarLembrete(){
         }
     }
  
+function listarConcluidos(){
+    const lemConcluidos = lem.filter(lem => lem.concluidos)
+    if(lem == 0){
+        console.log('Não a lembretes salvos')
+        exibirMenu()
+    }else{
+        console.log('listando lembretes concluidos')
+        lemConcluidos.forEach((lem, index) => {
+            console.log(`Lembrete ${index +1}. ${lem.lembrete} Prazo: ${lem.prazo}`)
+        })
+        exibirMenu()
+    }
+}
+
 }
