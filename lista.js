@@ -61,31 +61,31 @@ function listar(){
  }
 }
 function editar(){
-    if (lem.length == 0){
-        console.log ('nao tem nenhum lembrete')
+    if(lem == 0){
+        console.log('Não a nenhum lembrete salvo')
         exibirMenu()
     }else{
-        console.log('lista de elementos')
+        console.log('Listando lembretes')
         lem.forEach((lem, index) => {
-            console(`${index + 1}. nome:${lem.lembrete}`)
+            console.log(`${index +1}. ${lem.lembrete}`)
         })
-    }
-        rl.question('digite o numero que deseja editar:', (opcao) =>{
-          if (opcao > 0 && opcao <= funcionarios.length){
-                rl.question('digite o novo lembrete: ', (lembrete) => {
-                    rl.question('digite o novo dia ', (prazo) => {
-                        lem[opcao - 1] = {
-                            lembrete,
-                            prazo,
-                        }
-                        console.log('editado com sucesso')
-                        exibirMenu()
+        rl.question('Digite o numero do lembrete que quer editar: ', (editar) => {
+            if(editar > 0 && editar <= lem.length){
+                rl.question('Digite o novo lembrete: ', (lembrete) => {
+                    rl.question('Digite um prazo: ', (prazo) => {
+                            lem[editar -1]={
+                                lembrete,
+                                prazo
+                            }
+                            console.log('Editado com Sucesso')
+                            exibirMenu()
+
                     })
                 })
-            } else{
-                console.log('numero invalido')
-                exibirMenu()
+            }else{
+                console.log('Numero Invalido, Tente Novamente')
+                editar()
             }
         })
-    
+    }
 }
