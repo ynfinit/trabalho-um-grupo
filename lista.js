@@ -13,40 +13,41 @@ function exibirMenu(){
     console.log(`
     menu:
     1- Adicionar um lembrete
-    2- Adicionar um Prazo
-    3- Listar Lembretes Salvos
-    4- concluidos
+    2- Listar Lembretes Salvos
+    3- concluidos
+    4- editar o lembrete
     5- Sair`)
-}
 
-rl.question('Digite uma opção ', (opcao) => {
-    switch(opcao){
-        case '1':
-            adicionarLembrete()
-        break
-        case '2':
+    rl.question('Digite uma opção ', (opcao) => {
+        switch(opcao){
+            case '1':
+                adicionarLembrete()
+            break
+            case '2':
+                listar()
+            break
+            case '3':
 
-        break
-        case '3':
-            listar()
-        break
-        case '4':
+            break
+            case '4':
+                editar()
+                break
+                case '5':
+                rl.close()
+            break
+            default:
+                console.log('Opção Invalida')        
+        }
+    })
 
-        break
-        case '5':
-            rl.close()
-        break
-        default:
-            console.log('Opção Invalida')        
-    }
-})
-}
 
 function adicionarLembrete(){
     rl.question('Digite um Lembrete', (lembrete) => {
-        lem.push(lembrete)
-            console.log('Salvo com Sucesso')
-                exibirMenu()
+        rl.question('Digite um prazo', (prazo) => {
+            lem.push({lembrete:lembrete, prazo:parseFloat(prazo)})
+                console.log('Salvo com Sucesso')
+            exibirMenu()
+        })
     })
 }
 function listar(){
@@ -57,4 +58,34 @@ function listar(){
         console.log(lem)
         exibirMenu()
     }
+ }
+}
+function editar(){
+    if (lem.length == 0){
+        console.log ('nao tem nenhum lembrete')
+        exibirMenu()
+    }else{
+        console.log('lista de elementos')
+        lem.forEach((lem, index) => {
+            console(`${index + 1}. nome:${lem.lembrete}`)
+        })
+    }
+        rl.question('digite o numero que deseja editar:', (opcao) =>{
+          if (opcao > 0 && opcao <= funcionarios.length){
+                rl.question('digite o novo lembrete: ', (lembrete) => {
+                    rl.question('digite o novo dia ', (prazo) => {
+                        lem[opcao - 1] = {
+                            lembrete,
+                            prazo,
+                        }
+                        console.log('editado com sucesso')
+                        exibirMenu()
+                    })
+                })
+            } else{
+                console.log('numero invalido')
+                exibirMenu()
+            }
+        })
+    
 }
