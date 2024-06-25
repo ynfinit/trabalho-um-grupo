@@ -40,6 +40,7 @@ rl.question('Digite uma opção ', (opcao) => {
             console.log('Opção Invalida')        
     }
 })
+}
 
 function adicionarLembrete(){
     rl.question('Digite um Lembrete', (lembrete) => {
